@@ -11,6 +11,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+//imports for JSON parsing
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		factsList = new ArrayList<Facts>();
+		//Executing asynctask for recieving JSON data from the server
 		new JSONAsyncTask().execute("https://dl.dropboxusercontent.com/u/746330/facts.json");
 		
 		ListView listview = (ListView)findViewById(R.id.list);
@@ -86,7 +88,7 @@ public class MainActivity extends Activity {
 					HttpEntity entity = response.getEntity();
 					String data = EntityUtils.toString(entity);
 					
-				
+				//Pasring The JSON Array and the JSON object with the key value pairs
 					JSONObject jsono = new JSONObject(data);
 					JSONArray jarray = jsono.getJSONArray("rows");
 					Log.e("Response:", jarray.toString());
@@ -96,9 +98,9 @@ public class MainActivity extends Activity {
 					
 						Facts fact = new Facts();
 						
-						fact.setName(object.getString("title"));
-						fact.setDescription(object.getString("description"));
-						fact.setImage(object.getString("imageHref"));						
+						fact.setName(object.getString("title")); // title object of JSON data (title:)
+						fact.setDescription(object.getString("description"));//description object of JSON data(description:)
+						fact.setImage(object.getString("imageHref"));		//Image data of JSON data (imageHref:)				
 						factsList.add(fact);
 					}
 					return true;
@@ -115,7 +117,7 @@ public class MainActivity extends Activity {
 			}
 			return false;
 		}
-		
+		//Failure case
 		protected void onPostExecute(Boolean result) {
 			dialog.cancel();
 			adapter.notifyDataSetChanged();
