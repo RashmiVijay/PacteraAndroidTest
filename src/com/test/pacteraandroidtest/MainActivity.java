@@ -46,6 +46,9 @@ public class MainActivity extends Activity {
 		
 		listview.setAdapter(adapter);
 		
+		Button b=(Button)findViewById(R.id.button1);
+	        b.setOnClickListener(listener);
+		
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -127,7 +130,15 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	
+	public OnClickListener listener=new OnClickListener(){
+	        @Override
+	        public void onClick(View arg0) {
+	        	
+	        	//Refresh view
+	        	adapter.notifyDataSetChanged();
+	     	        
+	        }
+	    };
 
 	
 	
