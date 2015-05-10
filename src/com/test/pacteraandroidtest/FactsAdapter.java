@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//FactsAdapter class corresponds to Listview Adapter for populating the JSON data
 public class FactsAdapter extends ArrayAdapter<Facts> {
 	ArrayList<Facts> factList;
 	LayoutInflater vi;
@@ -29,7 +30,7 @@ public class FactsAdapter extends ArrayAdapter<Facts> {
 		factList = objects;
 	}
  
-	
+       //population JSON data into the view	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// convert view = design
@@ -60,7 +61,7 @@ public class FactsAdapter extends ArrayAdapter<Facts> {
 		
 
 	}
-
+// Decoding the bitmap of the image from the url in the imageHref
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 		ImageView bmImage;
 
