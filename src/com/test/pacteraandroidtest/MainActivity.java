@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
 				//Pasring The JSON Array and the JSON object with the key value pairs
 					JSONObject jsono = new JSONObject(data);
 					JSONArray jarray = jsono.getJSONArray("rows");
-					Log.e("Response:", jarray.toString());
+				//	Log.e("Response:", jarray.toString());
 					
 					for (int i = 0; i < jarray.length(); i++) {
 						JSONObject object = jarray.getJSONObject(i);
