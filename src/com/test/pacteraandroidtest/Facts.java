@@ -8,7 +8,7 @@ public class Facts {
 	public Facts() {
 		// TODO Auto-generated constructor stub
 	}
-
+//getter and setter functions for getting title, description and image from the JSON object 
 	public Facts(String name, String description,String image) {
 		super();
 		this.title = name;
