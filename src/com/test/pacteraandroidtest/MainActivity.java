@@ -80,7 +80,6 @@ public class MainActivity extends Activity {
 		protected Boolean doInBackground(String... urls) {
 			try {
 				
-				//------------------>>
 				HttpGet httppost = new HttpGet(urls[0]);
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httppost);
@@ -110,8 +109,7 @@ public class MainActivity extends Activity {
 					return true;
 				}
 				
-				//------------------>>
-				
+			
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			} catch (IOException e) {
